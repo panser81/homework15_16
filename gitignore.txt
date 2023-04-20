@@ -9,6 +9,10 @@
 *.ids
 **/target/
 
+*/target/*
+/target/**
+*/target/**
+
 # logs
 /stacktrace.log
 /test/reports
