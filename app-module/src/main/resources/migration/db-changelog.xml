@@ -1,0 +1,62 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation=" http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="spanteleyko@gmail.com" id="1681975884494-1">
+        <createTable tableName="item">
+            <column autoIncrement="true" name="id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="item_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="spanteleyko@gmail.com" id="1681975884494-2">
+        <createTable tableName="shop">
+            <column autoIncrement="true" name="id" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="shop_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="location" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="spanteleyko@gmail.com" id="1681975884494-3">
+        <createTable tableName="item_shop">
+            <column name="item_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="item_shop_pkey"/>
+            </column>
+            <column name="shop_id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="item_shop_pkey"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="spanteleyko@gmail.com" id="1681975884494-4">
+        <createTable tableName="itemdetails">
+            <column name="item_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="numeric(12, 2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="spanteleyko@gmail.com" id="1681975884494-5">
+        <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="itemdetails" constraintName="fk_item_details"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="item" validate="true"/>
+    </changeSet>
+    <changeSet author="spanteleyko@gmail.com" id="1681975884494-6">
+        <insert tableName="shop">
+            <column name="name" value="First Shop"></column>
+            <column name="location" value="Berlin"></column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
