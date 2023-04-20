@@ -2,6 +2,8 @@
 #.gitignore for java
 *.class
 
+multi-module-project.iml
+
 # Package Files #
 *.jar
 *.war
