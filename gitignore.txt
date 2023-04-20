@@ -58,3 +58,17 @@ local.properties
 .loadpath
 **/.DS_Store
 .DS_Store
+
+*.classpath
+*.class
+*.prefs
+*.jar
+*.lst
+*.project
+*.factorypath
+*.original
+target/
+.settings/
+.apt_generated
+.sts4-cache
+.springBeans
